@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sahith Chunduru — Product Engineering & Data Science</title>
+  <meta name="description" content="Personal portfolio of Sahith Chunduru, CSE (Product Engineering with AI) student at SRM University-AP and Data Science student at IIT Madras.">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sahith Chunduru — Portfolio">
+  <meta property="og:description" content="Product Engineering with AI | Computer Science | Data Science. Projects include CRDT-based real-time collaborative editors.">
+  <meta property="og:url" content="https://github.com/Sahith1780">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-sky-500/30 selection:text-sky-200 transition-colors duration-300 font-sans min-h-screen flex flex-col">
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80 transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center space-x-2.5 group">
+        <div class="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 font-mono font-semibold text-sm group-hover:border-sky-400 transition-all">
+          SC
+        </div>
+        <span class="font-semibold text-slate-100 text-sm tracking-tight group-hover:text-sky-400 transition-colors">
+          Sahith Chunduru
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-1 text-sm font-medium text-slate-300">
+        <a href="#about" class="px-3 py-1.5 rounded-md hover:text-sky-400 hover:bg-slate-800/50 transition-all nav-link">About</a>
+        <a href="#education" class="px-3 py-1.5 rounded-md hover:text-sky-400 hover:bg-slate-800/50 transition-all nav-link">Education</a>
+        <a href="#skills" class="px-3 py-1.5 rounded-md hover:text-sky-400 hover:bg-slate-800/50 transition-all nav-link">Skills</a>
+        <a href="#projects" class="px-3 py-1.5 rounded-md hover:text-sky-400 hover:bg-slate-800/50 transition-all nav-link">Projects</a>
+        <a href="#engagements" class="px-3 py-1.5 rounded-md hover:text-sky-400 hover:bg-slate-800/50 transition-all nav-link">Activities</a>
+        <a href="#contact" class="px-3 py-1.5 rounded-md hover:text-sky-400 hover:bg-slate-800/50 transition-all nav-link">Contact</a>
+      </nav>
+
+      <!-- Actions (Theme Toggle & Mobile Menu Btn) -->
+      <div class="flex items-center space-x-3">
+        <!-- Theme Switcher -->
+        <button id="theme-toggle" aria-label="Toggle light and dark theme" class="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-100 hover:border-slate-700 transition-all">
+          <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+          <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" aria-label="Open navigation menu" class="md:hidden p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-100">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800 bg-slate-950/95 px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
+      <a href="#about" class="block px-3 py-2 rounded-md hover:bg-slate-800 text-slate-200">About</a>
+      <a href="#education" class="block px-3 py-2 rounded-md hover:bg-slate-800 text-slate-200">Education</a>
+      <a href="#skills" class="block px-3 py-2 rounded-md hover:bg-slate-800 text-slate-200">Skills</a>
+      <a href="#projects" class="block px-3 py-2 rounded-md hover:bg-slate-800 text-slate-200">Projects</a>
+      <a href="#engagements" class="block px-3 py-2 rounded-md hover:bg-slate-800 text-slate-200">Activities</a>
+      <a href="#contact" class="block px-3 py-2 rounded-md hover:bg-slate-800 text-slate-200">Contact</a>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="py-20 md:py-28 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl space-y-6">
+        
+        <!-- Status Badge -->
+        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-xs text-sky-400 font-mono">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>Open to Engineering & AI Internships</span>
+        </div>
+
+        <!-- Main Title -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-100 leading-tight">
+          Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500">Sahith Chunduru</span>.
+        </h1>
+
+        <!-- Subtitle / Roles -->
+        <p class="text-xl sm:text-2xl text-slate-300 font-normal leading-relaxed">
+          Product Engineering student focused on building distributed real-time systems, AI-powered software, and practical web applications.
+        </p>
+
+        <!-- Brief Bio -->
+        <p class="text-slate-400 text-base leading-relaxed">
+          Pursuing a dual degree in <strong class="text-slate-200">CSE (Product Engineering with AI) at SRM University-AP</strong> and a <strong class="text-slate-200">BS in Data Science at IIT Madras</strong>. Creator of <a href="https://syndoc-creative-hub.vercel.app/" target="_blank" class="text-sky-400 underline underline-offset-4 hover:text-sky-300">SynDoc 2.0</a>, a CRDT-powered real-time collaborative document editor.
+        </p>
+
+        <!-- CTA Buttons & Social Links -->
+        <div class="pt-4 flex flex-wrap items-center gap-4">
+          <a href="#projects" class="inline-flex items-center space-x-2 px-5 py-2.5 rounded-lg bg-sky-500 text-slate-950 font-semibold text-sm hover:bg-sky-400 transition-all shadow-lg shadow-sky-500/10">
+            <span>View Projects</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+
+          <button id="copy-email-hero" class="inline-flex items-center space-x-2 px-5 py-2.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-200 text-sm font-medium transition-all">
+            <i data-lucide="mail" class="w-4 h-4 text-sky-400"></i>
+            <span id="email-btn-text">Sahithchunduru@gmail.com</span>
+          </button>
+
+          <div class="flex items-center space-x-2 pl-2">
+            <a href="https://github.com/Sahith1780" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="p-2.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-400 hover:text-slate-100 transition-all">
+              <i data-lucide="github" class="w-5 h-5"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/Sahith4248" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="p-2.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-400 hover:text-sky-400 transition-all">
+              <i data-lucide="linkedin" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Meta Info Grid -->
+        <div class="pt-8 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs font-mono text-slate-400">
+          <div>
+            <span class="block text-slate-500 uppercase tracking-wider mb-1">Location</span>
+            <span class="text-slate-200 font-sans font-medium text-sm">Vijayawada, AP, India</span>
+          </div>
+          <div>
+            <span class="block text-slate-500 uppercase tracking-wider mb-1">Education</span>
+            <span class="text-slate-200 font-sans font-medium text-sm">SRM AP & IIT Madras</span>
+          </div>
+          <div>
+            <span class="block text-slate-500 uppercase tracking-wider mb-1">Focus</span>
+            <span class="text-slate-200 font-sans font-medium text-sm">Full-Stack, AI, Systems</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-16 bg-slate-900/40 border-y border-slate-800/60 transition-colors">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl space-y-6">
+          <div class="flex items-center space-x-3">
+            <div class="p-2 rounded-lg bg-sky-500/10 text-sky-400">
+              <i data-lucide="user" class="w-5 h-5"></i>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-100">About Me</h2>
+          </div>
+
+          <p class="text-slate-300 text-base leading-relaxed">
+            I am an engineering student pursuing <strong class="text-slate-100">Product Engineering with AI at SRM University-AP</strong>, alongside an online <strong class="text-slate-100">BS in Data Science and Applications at IIT Madras</strong>. 
+          </p>
+
+          <p class="text-slate-300 text-base leading-relaxed">
+            My engineering philosophy centers around solving genuine user problems with robust, scalable technology. Rather than building simple static demos, I focus on real-world engineering concepts like conflict-free replicated data types (CRDTs), optimistic UI updates, offline-first persistence with IndexedDB, and clean full-stack design patterns.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+              <div class="flex items-center space-x-2 text-sky-400 text-sm font-semibold">
+                <i data-lucide="code" class="w-4 h-4"></i>
+                <span>Problem Solving & Craft</span>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Strong emphasis on Object-Oriented Programming, Data Structures, Algorithms, and structured software architecture.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+              <div class="flex items-center space-x-2 text-emerald-400 text-sm font-semibold">
+                <i data-lucide="cpu" class="w-4 h-4"></i>
+                <span>AI & Product Integration</span>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Exploring Generative AI, prompt engineering, and intelligent features directly embedded into user-centric web applications.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-8">
+        <div class="flex items-center space-x-3">
+          <div class="p-2 rounded-lg bg-sky-500/10 text-sky-400">
+            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-100">Education & Academic Background</h2>
+            <p class="text-slate-400 text-sm">Rigorous dual-degree foundational training in Computer Science & Data Science.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- SRM University-AP -->
+          <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between space-y-4">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-full text-xs font-mono bg-sky-500/10 text-sky-400 border border-sky-500/20">
+                  B.Tech Degree
+                </span>
+                <span class="text-xs font-mono text-slate-400">Expected 2026–2030</span>
+              </div>
+              <h3 class="text-lg font-semibold text-slate-100">SRM University-AP</h3>
+              <p class="text-sm font-medium text-sky-400">B.Tech in Computer Science and Engineering</p>
+              <p class="text-xs text-slate-400">Specialization: Product Engineering with AI (PEWAI)</p>
+              <p class="text-xs text-slate-500 flex items-center space-x-1 pt-1">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+                <span>Amaravati, Andhra Pradesh</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- IIT Madras -->
+          <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between space-y-4">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  BS Degree
+                </span>
+                <span class="text-xs font-mono text-slate-400">Expected 2026–2030</span>
+              </div>
+              <h3 class="text-lg font-semibold text-slate-100">Indian Institute of Technology Madras</h3>
+              <p class="text-sm font-medium text-emerald-400">BS in Data Science and Applications</p>
+              <p class="text-xs text-slate-400">Online Degree Programme</p>
+              <p class="text-xs text-slate-500 flex items-center space-x-1 pt-1">
+                <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+                <span>Chennai, Tamil Nadu (Remote)</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Secondary Education Grid Item -->
+          <div class="p-5 rounded-xl bg-slate-900/40 border border-slate-800/80 space-y-2">
+            <div class="flex justify-between items-center text-xs font-mono text-slate-400">
+              <span>Junior College (2024–2026)</span>
+              <span class="text-sky-400 font-semibold">90.5%</span>
+            </div>
+            <h4 class="text-sm font-semibold text-slate-200">Sri Chaitanya Co-ed Jnr College</h4>
+            <p class="text-xs text-slate-400">Senior Secondary Schooling — Vijayawada, AP</p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-slate-900/40 border border-slate-800/80 space-y-2">
+            <div class="flex justify-between items-center text-xs font-mono text-slate-400">
+              <span>High School (2012–2024)</span>
+              <span class="text-sky-400 font-semibold">91.5%</span>
+            </div>
+            <h4 class="text-sm font-semibold text-slate-200">Sri Chaitanya Techno School</h4>
+            <p class="text-xs text-slate-400">Secondary Schooling — Vijayawada, AP</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="py-16 bg-slate-900/40 border-y border-slate-800/60">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div class="flex items-center space-x-3">
+          <div class="p-2 rounded-lg bg-sky-500/10 text-sky-400">
+            <i data-lucide="terminal" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-100">Technical Skills</h2>
+            <p class="text-slate-400 text-sm">Core technologies, frameworks, and developer tooling.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Programming -->
+          <div class="p-5 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+            <h3 class="text-sm font-semibold text-slate-200 flex items-center space-x-2">
+              <i data-lucide="code-2" class="w-4 h-4 text-sky-400"></i>
+              <span>Programming Languages</span>
+            </h3>
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">C / C++</span>
+              <span class="skill-chip">JavaScript</span>
+              <span class="skill-chip">HTML5</span>
+              <span class="skill-chip">CSS3</span>
+            </div>
+          </div>
+
+          <!-- AI & Data -->
+          <div class="p-5 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+            <h3 class="text-sm font-semibold text-slate-200 flex items-center space-x-2">
+              <i data-lucide="sparkles" class="w-4 h-4 text-emerald-400"></i>
+              <span>AI & Data Science</span>
+            </h3>
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span class="skill-chip">Artificial Intelligence</span>
+              <span class="skill-chip">Generative AI</span>
+              <span class="skill-chip">Data Science</span>
+              <span class="skill-chip">Prompt Engineering</span>
+            </div>
+          </div>
+
+          <!-- Web & Software -->
+          <div class="p-5 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+            <h3 class="text-sm font-semibold text-slate-200 flex items-center space-x-2">
+              <i data-lucide="layers" class="w-4 h-4 text-blue-400"></i>
+              <span>Web & Software Engineering</span>
+            </h3>
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span class="skill-chip">Full-Stack Fundamentals</span>
+              <span class="skill-chip">REST APIs</span>
+              <span class="skill-chip">Git / GitHub</span>
+              <span class="skill-chip">CRDT / Real-time Sync</span>
+            </div>
+          </div>
+
+          <!-- Development Tools -->
+          <div class="p-5 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+            <h3 class="text-sm font-semibold text-slate-200 flex items-center space-x-2">
+              <i data-lucide="wrench" class="w-4 h-4 text-amber-400"></i>
+              <span>Tools & Environments</span>
+            </h3>
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span class="skill-chip">VS Code</span>
+              <span class="skill-chip">GitHub</span>
+              <span class="skill-chip">Vercel</span>
+              <span class="skill-chip">AI-assisted Dev Tools</span>
+            </div>
+          </div>
+
+          <!-- Core Concepts -->
+          <div class="p-5 rounded-xl bg-slate-900 border border-slate-800 space-y-3 sm:col-span-2 lg:col-span-2">
+            <h3 class="text-sm font-semibold text-slate-200 flex items-center space-x-2">
+              <i data-lucide="brain-circuit" class="w-4 h-4 text-indigo-400"></i>
+              <span>Core CS Fundamentals</span>
+            </h3>
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span class="skill-chip">Object-Oriented Programming (OOP)</span>
+              <span class="skill-chip">Data Structures & Algorithms (DSA)</span>
+              <span class="skill-chip">Problem Solving</span>
+              <span class="skill-chip">Structured Debugging</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div class="flex items-center space-x-3">
+          <div class="p-2 rounded-lg bg-sky-500/10 text-sky-400">
+            <i data-lucide="folder-git-2" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-100">Featured Projects</h2>
+            <p class="text-slate-400 text-sm">Real-world applications built and deployed to production.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- PROJECT 1: SynDoc 2.0 -->
+        <article class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between space-y-6 group">
+          <div class="space-y-4">
+            
+            <!-- Header & Badge -->
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="text-xs font-mono text-sky-400 font-semibold uppercase tracking-wider">Production Application</span>
+                <h3 class="text-xl font-bold text-slate-100 group-hover:text-sky-400 transition-colors">
+                  SynDoc 2.0
+                </h3>
+                <p class="text-xs font-mono text-slate-400">Real-Time Collaborative Document Editor</p>
+              </div>
+              <a href="https://syndoc-creative-hub.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit SynDoc 2.0" class="p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-sky-400 hover:bg-slate-700 transition-all">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+              </a>
+            </div>
+
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Full-stack collaborative editor enabling multiple users to edit documents simultaneously with live cursors, user presence indicator, and persistent cross-device synchronization.
+            </p>
+
+            <!-- Technical Challenge & Solution -->
+            <div class="p-3.5 rounded-lg bg-slate-950/60 border border-slate-800/80 text-xs space-y-1.5">
+              <span class="font-semibold text-slate-200 flex items-center space-x-1.5">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i>
+                <span>Engineering Challenge Solved:</span>
+              </span>
+              <p class="text-slate-400 leading-relaxed">
+                Prevents conflicting edits, lost data, and last-write-wins collisions during concurrent offline/online edits using Yjs CRDT-based state synchronization.
+              </p>
+            </div>
+
+            <!-- Tech Badges -->
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span class="tech-chip">CRDT</span>
+              <span class="tech-chip">Yjs</span>
+              <span class="tech-chip">Real-Time Sync</span>
+              <span class="tech-chip">WebSockets</span>
+              <span class="tech-chip">Vercel</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+            <a href="https://syndoc-creative-hub.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 text-xs font-semibold text-sky-400 hover:text-sky-300">
+              <span>Launch Live App</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+            <span class="text-xs font-mono text-slate-500">Deployed on Vercel</span>
+          </div>
+        </article>
+
+        <!-- PROJECT 2: SyncDoc Prototype -->
+        <article class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between space-y-6 group">
+          <div class="space-y-4">
+            
+            <!-- Header & Badge -->
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="text-xs font-mono text-emerald-400 font-semibold uppercase tracking-wider">Research Prototype</span>
+                <h3 class="text-xl font-bold text-slate-100 group-hover:text-emerald-400 transition-colors">
+                  SyncDoc Prototype
+                </h3>
+                <p class="text-xs font-mono text-slate-400">CRDT & Offline Persistence Engine</p>
+              </div>
+              <a href="https://collab-doc-editor-silk.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit SyncDoc Prototype" class="p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-emerald-400 hover:bg-slate-700 transition-all">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+              </a>
+            </div>
+
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Prototype collaborative editor exploring conflict-free data replication, offline state synchronization, and client-side browser storage persistence via IndexedDB.
+            </p>
+
+            <!-- Technical Challenge & Solution -->
+            <div class="p-3.5 rounded-lg bg-slate-950/60 border border-slate-800/80 text-xs space-y-1.5">
+              <span class="font-semibold text-slate-200 flex items-center space-x-1.5">
+                <i data-lucide="database" class="w-3.5 h-3.5 text-sky-400"></i>
+                <span>Engineering Focus:</span>
+              </span>
+              <p class="text-slate-400 leading-relaxed">
+                Tested document state recovery under network latency, abrupt disconnections, and parallel local edits to establish baseline zero-data-loss behavior.
+              </p>
+            </div>
+
+            <!-- Tech Badges -->
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span class="tech-chip">IndexedDB</span>
+              <span class="tech-chip">CRDT</span>
+              <span class="tech-chip">JavaScript</span>
+              <span class="tech-chip">HTML5 / CSS3</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+            <a href="https://collab-doc-editor-silk.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 text-xs font-semibold text-emerald-400 hover:text-emerald-300">
+              <span>View Prototype</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+            <span class="text-xs font-mono text-slate-500">Deployed on Vercel</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ACTIVITIES / ENGAGEMENTS SECTION -->
+    <section id="engagements" class="py-16 bg-slate-900/40 border-y border-slate-800/60">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div class="flex items-center space-x-3">
+          <div class="p-2 rounded-lg bg-sky-500/10 text-sky-400">
+            <i data-lucide="trophy" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-100">Hackathons & Engagement</h2>
+            <p class="text-slate-400 text-sm">Active participation in technical workshops and rapid build competitions.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Synora Hackathon -->
+          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-sky-400 font-medium">SRM University-AP (2026)</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-sky-500/10 text-sky-400 border border-sky-500/20">18-Hour Hackathon</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-100">Synora Hackathon</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Participated in an intensive team development sprint focused on rapid prototyping, system design, and technical execution under strict time constraints.
+            </p>
+          </div>
+
+          <!-- Hackshastra Workshop -->
+          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-emerald-400 font-medium">SRM University-AP (2026)</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Technical Workshop</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-100">Hackshastra Workshop</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Hands-on technical workshop focused on modern software engineering workflows, product architecture, and practical exposure to emerging tech.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Certification Banner -->
+        <div class="p-5 rounded-xl bg-slate-900/90 border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="flex items-center space-x-3">
+            <div class="p-2.5 rounded-lg bg-indigo-500/10 text-indigo-400">
+              <i data-lucide="award" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-slate-100">Certification: What Is Generative AI?</h4>
+              <p class="text-xs text-slate-400">LinkedIn Learning (2026) — Core concepts & application paradigms</p>
+            </div>
+          </div>
+          <span class="text-xs font-mono text-slate-500 px-3 py-1 rounded bg-slate-950 border border-slate-800">Verified</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto space-y-8 text-center sm:text-left">
+        
+        <div class="space-y-3">
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-xs text-sky-400 font-mono">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+            <span>Get In Touch</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-slate-100">Let's connect & build together.</h2>
+          <p class="text-slate-400 text-base">
+            Whether you have an internship opportunity, project collaboration, or technical question, feel free to reach out directly.
+          </p>
+        </div>
+
+        <!-- Contact Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          
+          <!-- Email Card -->
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-left space-y-2">
+            <span class="text-xs font-mono text-slate-500 block">Direct Email</span>
+            <button id="copy-email-card" class="text-sm font-medium text-slate-200 hover:text-sky-400 truncate w-full text-left transition-colors flex items-center justify-between group">
+              <span class="truncate">Sahithchunduru@gmail.com</span>
+              <i data-lucide="copy" class="w-3.5 h-3.5 text-slate-500 group-hover:text-sky-400 shrink-0"></i>
+            </button>
+          </div>
+
+          <!-- LinkedIn Card -->
+          <a href="https://www.linkedin.com/in/Sahith4248" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-left space-y-2 group transition-all">
+            <span class="text-xs font-mono text-slate-500 block">LinkedIn Profile</span>
+            <div class="text-sm font-medium text-slate-200 group-hover:text-sky-400 flex items-center justify-between">
+              <span>in/Sahith4248</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-500 group-hover:text-sky-400"></i>
+            </div>
+          </a>
+
+          <!-- GitHub Card -->
+          <a href="https://github.com/Sahith1780" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-left space-y-2 group transition-all">
+            <span class="text-xs font-mono text-slate-500 block">GitHub Profile</span>
+            <div class="text-sm font-medium text-slate-200 group-hover:text-sky-400 flex items-center justify-between">
+              <span>github/Sahith1780</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-500 group-hover:text-sky-400"></i>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- Contact Form -->
+        <form id="contact-form" class="p-6 rounded-2xl bg-slate-900 border border-slate-800 text-left space-y-4">
+          <h3 class="text-base font-semibold text-slate-200">Send a quick message</h3>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="name" class="block text-xs font-mono text-slate-400 mb-1">Your Name</label>
+              <input type="text" id="name" required placeholder="Jane Doe" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-800 text-sm text-slate-100 focus:outline-none focus:border-sky-500 transition-colors">
+            </div>
+            <div>
+              <label for="email" class="block text-xs font-mono text-slate-400 mb-1">Your Email</label>
+              <input type="email" id="email" required placeholder="jane@example.com" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-800 text-sm text-slate-100 focus:outline-none focus:border-sky-500 transition-colors">
+            </div>
+          </div>
+
+          <div>
+            <label for="message" class="block text-xs font-mono text-slate-400 mb-1">Message</label>
+            <textarea id="message" rows="4" required placeholder="Hi Sahith, I saw your collaborative editor project..." class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-800 text-sm text-slate-100 focus:outline-none focus:border-sky-500 transition-colors"></textarea>
+          </div>
+
+          <button type="submit" class="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-sky-500 text-slate-950 font-semibold text-sm hover:bg-sky-400 transition-all flex items-center justify-center space-x-2">
+            <span>Send Message</span>
+            <i data-lucide="send" class="w-4 h-4"></i>
+          </button>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-8 text-xs text-slate-400 transition-colors">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      
+      <div class="flex items-center space-x-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span>Built with HTML, CSS, JavaScript & Tailwind CSS</span>
+      </div>
+
+      <p>© 2026 Sahith Chunduru. Designed for GitHub & Vercel deployment.</p>
+
+      <a href="#hero" class="hover:text-sky-400 transition-colors flex items-center space-x-1">
+        <span>Back to top</span>
+        <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+      </a>
+
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none px-4 py-3 rounded-xl bg-slate-900 border border-sky-500/40 text-slate-100 text-xs font-medium shadow-2xl flex items-center space-x-2">
+    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+    <span id="toast-message">Copied to clipboard!</span>
+  </div>
+
+  <!-- Custom Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

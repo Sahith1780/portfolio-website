@@ -1,0 +1,81 @@
+/* Custom CSS Styling for Sahith Chunduru Portfolio */
+
+/* Skill & Tech Badges */
+.skill-chip {
+  @apply px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950/80 border border-slate-800 text-slate-300 hover:border-slate-700 hover:text-slate-100 transition-all cursor-default;
+}
+
+.tech-chip {
+  @apply px-2 py-0.5 rounded text-[11px] font-mono bg-sky-500/10 text-sky-400 border border-sky-500/20;
+}
+
+/* Light Theme Overrides */
+html:not(.dark) body {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+html:not(.dark) header {
+  background-color: rgba(248, 250, 252, 0.85);
+  border-color: #e2e8f0;
+}
+
+html:not(.dark) #mobile-menu {
+  background-color: rgba(248, 250, 252, 0.98);
+  border-color: #e2e8f0;
+}
+
+html:not(.dark) section#about,
+html:not(.dark) section#skills,
+html:not(.dark) section#engagements {
+  background-color: rgba(241, 245, 249, 0.5);
+  border-color: #e2e8f0;
+}
+
+html:not(.dark) article,
+html:not(.dark) form,
+html:not(.dark) div.bg-slate-900,
+html:not(.dark) button.bg-slate-900,
+html:not(.dark) a.bg-slate-900 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #1e293b !important;
+}
+
+html:not(.dark) .skill-chip {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #334155 !important;
+}
+
+html:not(.dark) input,
+html:not(.dark) textarea {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html:not(.dark) footer {
+  background-color: #ffffff;
+  border-color: #e2e8f0;
+  color: #64748b;
+}
+
+html:not(.dark) h1, html:not(.dark) h2, html:not(.dark) h3, html:not(.dark) h4 {
+  color: #0f172a !important;
+}
+
+html:not(.dark) p {
+  color: #334155 !important;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Active Nav Link Highlight */
+.nav-link.active {
+  color: #38bdf8 !important;
+  font-weight: 600;
+}

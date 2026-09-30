@@ -98,11 +98,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Contact Form Handler ---
   const contactForm = document.getElementById('contact-form');
+  const submitBtnText = document.getElementById('submit-btn-text');
+
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      showToast('Thank you! Message received.');
-      contactForm.reset();
+      
+      const formData = new FormData(contactForm);
+      const accessKey = formData.get('access_key');
+      const name = formData.get('name');
+      const email = formData.get('email');
+      const message = formData.get('message');
+
+      if (!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+        // Fallback to mailto link if Web3Forms access key is not configured yet
+        window.location.href = `mailto:Sahithchunduru@gmail.com?subject=Portfolio Message from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+        showToast('Opening your email app...');
+        contactForm.reset();
+        return;
+      }
+
+      if (submitBtnText) submitBtnText.textContent = 'Sending...';
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+        const result = await response.json();
+
+        if (result.success) {
+          showToast('Message sent! Check your email inbox.');
+          contactForm.reset();
+        } else {
+          showToast(result.message || 'Error sending message.');
+        }
+      } catch (error) {
+        showToast('Failed to send. Opening email app...');
+        window.location.href = `mailto:Sahithchunduru@gmail.com?subject=Portfolio Message from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+      } finally {
+        if (submitBtnText) submitBtnText.textContent = 'Send Message';
+      }
     });
   }
 
